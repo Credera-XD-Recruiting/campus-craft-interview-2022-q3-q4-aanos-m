@@ -14,6 +14,9 @@ const generateCardNode = (data) => {
     jobTitle,
     companyName,
     post,
+    publishDate,
+    city,
+    state
   } = data;
   const templateId = "profile-post-item-template";
   const resultCardTemplate = document.getElementById(templateId);
@@ -25,15 +28,13 @@ const generateCardNode = (data) => {
 
   authorName.innerHTML = `${authorFirstName} ${authorLastName}`;
   jobDesc.innerHTML = `${jobTitle} @ ${companyName}`;
-  postNode.innerHTML = post;
+  postNode.innerHTML =  city + ", " + state + "<br /> <br />" + post +  "<br /> <br />" + publishDate;
+
 
   if (authorAvatarSrc) {
     const avatarImg = document.createElement("img");
     avatarImg.src = authorAvatarSrc;
-    avatarImg.setAttribute(
-      "aria-label",
-      `${authorFirstName} ${authorLastName}`
-    );
+    avatarImg.setAttribute("aria-label",`${authorFirstName} ${authorLastName}`);
     avatarNode.appendChild(avatarImg);
   }
 
